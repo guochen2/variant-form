@@ -3,6 +3,7 @@ export default {
     widgetLabel: {
       card: 'Card',
       alert: 'Alert',
+      wangeditor5: 'wangeditor5'
     },
 
     setting: {

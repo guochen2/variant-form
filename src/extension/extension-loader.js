@@ -17,6 +17,9 @@ import {alertSchema} from "@/extension/samples/extension-schema"
 import AlertWidget from '@/extension/samples/alert/alert-widget'
 import {registerFWGenerator} from '@/utils/sfc-generator'
 import {alertTemplateGenerator} from '@/extension/samples/extension-sfc-generator'
+import { wangeditor5Schema } from "@/extension/samples/extension-schema"
+import Wngeditor5Widget from '@/extension/samples/wangeditor5/wangeditor5-widget'
+import { wangeditor5Generator } from '@/extension/samples/extension-sfc-generator'
 
 export const loadExtension = function () {
 
@@ -64,8 +67,10 @@ export const loadExtension = function () {
    * 5. 加载完毕。
    */
   addCustomWidgetSchema(alertSchema)  //加载组件Json Schema
+  addCustomWidgetSchema(wangeditor5Schema)  //加载组件Json Schema
   /* -------------------------------------------------- */
   Vue.component(AlertWidget.name, AlertWidget)  //注册组件
+  Vue.component(Wngeditor5Widget.name, Wngeditor5Widget)  //注册组件
   /* -------------------------------------------------- */
   PERegister.registerCPEditor('alert-title', 'alert-title-editor',
       PEFactory.createInputTextEditor('title', 'extension.setting.alertTitle'))
@@ -113,4 +118,7 @@ export const loadExtension = function () {
   registerFWGenerator('alert', alertTemplateGenerator)  //注册字段组件的代码生成器
   /* -------------------------------------------------- */
   /* 字段组件加载完毕 end */
+  PERegister.registerCPEditor('wangeditor-height', 'wangeditor-height-editor',
+  PEFactory.createInputTextEditor('height', 'extension.setting.height'))
+registerFWGenerator('wangeditor5', wangeditor5Generator)
 }
